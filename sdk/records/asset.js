@@ -134,7 +134,7 @@ Asset.prototype.setFingerprint = function(fingerprint) {
 };
 
 Asset.prototype.loadString = async function(str, accessibility) {
-    assert(str && _.isString(str, 'Asset error: unrecognized string');
+    assert(str && _.isString(str), 'Asset error: unrecognized string');
     assert(accessibility && (accessibility === 'public' || accessibility === 'private'),
       'Asset error: unrecognized accessibility');
     assert(accessibility );
