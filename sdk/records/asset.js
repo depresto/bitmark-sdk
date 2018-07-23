@@ -133,6 +133,19 @@ Asset.prototype.setFingerprint = function(fingerprint) {
   return this;
 };
 
+Asset.prototype.loadString = async function(str, accessibility) {
+    assert(str && _.isString(str, 'Asset error: unrecognized string');
+    assert(accessibility && (accessibility === 'public' || accessibility === 'private'),
+      'Asset error: unrecognized accessibility');
+    assert(accessibility );
+
+    let fingerprint = await util.fingerprint.fromString(str);
+    this.setFingerprint(fingerprint);
+    this._str = str;
+    this._accessibility = accessibility;
+    return this;
+}
+
 Asset.prototype.loadFile = async function(filepath, accessibility) {
   assert(filepath && _.isString(filepath), 'Asset error: unrecognized filepath');
   assert(accessibility && (accessibility === 'public' || accessibility === 'private'),
